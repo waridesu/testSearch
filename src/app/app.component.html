@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="list">
+    <app-items-list [savedUser]="savedUser" (userEmitter)="setSelectedUser($event)"></app-items-list>
+  </div>
+
+  <div class="details">
+    <app-item-detail [selectedUser]="selectedUser" (saveUserEmitter)="saveUserData($event)"></app-item-detail>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<form *ngIf="searchForm" [formGroup]="searchForm">
+  <input formControlName="search" placeholder="Search..." class="search" type="text">
+</form>
+
+<div *ngIf="filteredUsers; else noUsers">
+  <div class="user" *ngFor="let user of filteredUsers" (click)="getUser(user)">
+    <img class="user__avatar" [src]="user.profile_pic_url" alt="">
+    <div>
+      <div>{{user.first_name}}</div>
+      <div>{{user.last_name}}</div>
+      <div>{{user.job_title}}</div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noUsers>
+  <div class="no-user">
+    no users
+  </div>
+</ng-template>

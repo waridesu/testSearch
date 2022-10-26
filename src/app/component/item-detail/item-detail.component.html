@@ -1,0 +1,26 @@
+<div *ngIf="selectedUser" class="detail-container">
+  <img class="avatar" [src]="selectedUser.profile_pic_url" alt="">
+
+  <form class="form" *ngIf="isEdited && userForm; else info" [formGroup]="userForm">
+    <input formControlName="first_name"/>
+    <input formControlName="last_name"/>
+    <input formControlName="email"/>
+    <input formControlName="job_title"/>
+    <input formControlName="city"/>
+    <input formControlName="company"/>
+    <button class="edit" type="button" (click)="editToggle(false)">Save</button>
+  </form>
+
+  <ng-template #info>
+    <div class="item">
+      <div>{{ selectedUser.first_name}}</div>
+      <div>{{ selectedUser.last_name}}</div>
+      <div>{{ selectedUser.email}}</div>
+      <div>{{ selectedUser.job_title}}</div>
+      <div>{{ selectedUser.city}}</div>
+      <div>{{ selectedUser.company}}</div>
+    </div>
+
+    <button class="edit" (click)="editToggle(true)">Edit</button>
+  </ng-template>
+</div>
